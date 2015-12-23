@@ -185,7 +185,7 @@ func (ll *LargeList) Range(begin, end interface{}) ([]interface{}, error) {
 
 // RangeN selects a range of values up to a maximum count from the large list.
 func (ll *LargeList) RangeN(begin, end interface{}, count int) ([]interface{}, error) {
-	res, err := ll.client.Execute(ll.policy, ll.key, ll.packageName, "find_range", ll.binName, NewValue(begin), NewValue(end), NewValue(count))
+	res, err := ll.client.Execute(ll.policy, ll.key, ll.packageName, "find_range_lim", ll.binName, NewValue(begin), NewValue(end), NewValue(count))
 	if err != nil {
 		return nil, err
 	}
